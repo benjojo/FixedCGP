@@ -14,7 +14,9 @@ class RRDTool {
 
 	function rrd_info($rrdfile) {
 		if (file_exists($rrdfile)) {
-			$raw_info = shell_exec($this->rrdtool.' info '.$rrdfile);
+			//echo("File $rrdfile requested");
+		//print_r(debug_backtrace());
+		$raw_info = shell_exec($this->rrdtool.' info '.$rrdfile);
 			$raw_array = explode("\n", $raw_info);
 			foreach ($raw_array as $key => $info) {
 				if ($info != "") {

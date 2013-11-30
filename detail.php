@@ -51,7 +51,7 @@ print "</ul>\n";
 
 printf('<img src="%s%s">'."\n", $CONFIG['weburl'], build_url('graph.php', $_GET));
 echo '</div>';
-
+echo "<script>window.setInterval(function() { location.reload(); },".((int)$_GET['s']*1000/120).");</script>";
 html_end();
 
 ?>

@@ -6,7 +6,7 @@ require_once 'inc/functions.inc.php';
 $plugin = validate_get(GET('p'), 'plugin');
 $width = empty($_GET['x']) ? $CONFIG['width'] : $_GET['x'];
 $heigth = empty($_GET['y']) ? $CONFIG['heigth'] : $_GET['y'];
-
+if(($width * $heigth) < 280001){
 if (validate_get(GET('h'), 'host') === NULL) {
 	error_log('CGP Error: plugin contains unknown characters');
 	error_image();
@@ -19,6 +19,6 @@ if (!file_exists($CONFIG['webdir'].'/plugin/'.$plugin.'.php')) {
 
 # load plugin
 include $CONFIG['webdir'].'/plugin/'.$plugin.'.php';
-
+}
 
 ?>
